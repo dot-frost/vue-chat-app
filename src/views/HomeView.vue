@@ -45,6 +45,9 @@
       </div>
       <!-- ChatBox -->
       <div class="flex-grow bg-white">
+        <!-- Header -->
+        <!-- Body -->
+        <!-- Send Message -->
       </div>
     </div>
   </div>
