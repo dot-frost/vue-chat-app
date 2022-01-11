@@ -44,13 +44,29 @@
         </div>
       </div>
       <!-- ChatBox -->
-      <div class="flex-grow bg-white">
+      <div class="flex-grow bg-white flex flex-col justify-items-stretch">
         <!-- Header -->
         <div class="w-full flex justify-start p-4 shadow-md items-center gap-3">
           <AvatarComponent class="w-10" status-type="circle" status="online" alt="Ali Talebi" :image="require('./../assets/images/person/harveyspecter.png')"/>
           <span class="text-sm text-gray-600">Ali Talebi</span>
         </div>
         <!-- Body -->
+        <div class="flex-grow bg-slate-100 overflow-scroll scrollbar-hide p-5 space-y-3">
+          <template v-for="i in 20">
+            <div v-if="i%2" class="flex justify-start items-start gap-2" :key="'e'+i">
+              <AvatarComponent class="w-8" status="online" alt="Ali Talebi" :image="require('./../assets/images/person/harveyspecter.png')"/>
+              <p class="text text-slate-100 rounded-2xl p-3 max-w-[70%] bg-slate-500 shadow-md">
+                How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!
+              </p>
+            </div>
+            <div v-else class="flex justify-end items-start gap-2" :key="'o'+i">
+              <AvatarComponent class="w-8 order-1" status="online" alt="Ali Talebi" :image="require('./../assets/images/person/harveyspecter.png')"/>
+              <p class="text text-slate-500 rounded-2xl p-3 max-w-[70%] bg-white shadow-md">
+                How the hell am I supposed to get a jury to believe you when I am not even sure that I do?!
+              </p>
+            </div>
+          </template>
+        </div>
         <!-- Send Message -->
       </div>
     </div>
