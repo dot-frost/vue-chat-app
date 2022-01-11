@@ -46,6 +46,10 @@
       <!-- ChatBox -->
       <div class="flex-grow bg-white">
         <!-- Header -->
+        <div class="w-full flex justify-start p-4 shadow-md items-center gap-3">
+          <AvatarComponent class="w-10" status-type="circle" status="online" alt="Ali Talebi" :image="require('./../assets/images/person/harveyspecter.png')"/>
+          <span class="text-sm text-gray-600">Ali Talebi</span>
+        </div>
         <!-- Body -->
         <!-- Send Message -->
       </div>
