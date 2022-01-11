@@ -4,6 +4,15 @@
       <!-- Sidebar -->
       <div id="sidebar" class="bg-slate-700 flex flex-col justify-items-stretch text-white w-20 md:w-[300px]">
         <!-- Profile -->
+        <div class="flex items-center p-4 md:p-9 gap-4">
+          <AvatarComponent :image="require('@/assets/images/person/haroldgunderson.png')"
+                           alt="Ali Talebi"
+                           status="online"
+                           status-type="circle"
+                           class="w-16"/>
+          <h2 class="w-full hidden md:block">Mike Rose</h2>
+          <ChevronDownIcon class="w-10 hidden md:block"/>
+        </div>
         <!-- Search -->
         <!-- Contacts -->
         <!-- Actions -->
@@ -16,7 +25,14 @@
 </template>
 
 <script>
+import { ChevronDownIcon } from '@heroicons/vue/solid'
+import AvatarComponent from '@/components/User/AvatarComponent'
+
 export default {
-  name: 'HomeView'
+  name: 'HomeView',
+  components: {
+    AvatarComponent,
+    ChevronDownIcon
+  }
 }
 </script>
