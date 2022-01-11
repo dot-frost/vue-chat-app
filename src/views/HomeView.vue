@@ -14,6 +14,11 @@
           <ChevronDownIcon class="w-10 hidden md:block"/>
         </div>
         <!-- Search -->
+        <div class="border-y border-slate-600 relative hidden md:block">
+          <SearchIcon class="w-10 h-10 p-2 absolute left-1"/>
+          <input type="text" class="bg-slate-600 outline-0 pl-12 placeholder-white h-9 w-[17.2em]"
+                 placeholder="Search contact...">
+        </div>
         <!-- Contacts -->
         <!-- Actions -->
       </div>
@@ -25,14 +30,15 @@
 </template>
 
 <script>
-import { ChevronDownIcon } from '@heroicons/vue/solid'
+import { ChevronDownIcon, SearchIcon } from '@heroicons/vue/solid'
 import AvatarComponent from '@/components/User/AvatarComponent'
 
 export default {
   name: 'HomeView',
   components: {
     AvatarComponent,
-    ChevronDownIcon
+    ChevronDownIcon,
+    SearchIcon
   }
 }
 </script>
