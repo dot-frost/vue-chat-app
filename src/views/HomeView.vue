@@ -20,6 +20,15 @@
                  placeholder="Search contact...">
         </div>
         <!-- Contacts -->
+        <div class="flex flex-grow overflow-auto flex-col scrollbar-hide">
+          <UserContactComponent
+            :user="{ full_name: 'Ali Talebi' , avatar:require('@/assets/images/person/haroldgunderson.png') , status:'online'}"
+            :latest="'Hello Word!!'"
+            :status-type="'dot'"
+            v-for="i in 20"
+            :key="i"
+          />
+        </div>
         <!-- Actions -->
       </div>
       <!-- ChatBox -->
@@ -32,10 +41,12 @@
 <script>
 import { ChevronDownIcon, SearchIcon } from '@heroicons/vue/solid'
 import AvatarComponent from '@/components/User/AvatarComponent'
+import UserContactComponent from '@/components/User/UserContactComponent'
 
 export default {
   name: 'HomeView',
   components: {
+    UserContactComponent,
     AvatarComponent,
     ChevronDownIcon,
     SearchIcon
