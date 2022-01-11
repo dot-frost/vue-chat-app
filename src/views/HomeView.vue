@@ -30,6 +30,18 @@
           />
         </div>
         <!-- Actions -->
+        <div class="flex flex-col md:flex-row justify-evenly text-sm gap-0.5">
+          <div
+            class="flex bg-slate-600 w-full justify-center items-center gap-1 py-2 cursor-pointer hover:bg-slate-500">
+            <UserAddIcon class="w-7 md:5"/>
+            <span class="hidden md:block">Add contact</span>
+          </div>
+          <div
+            class="flex bg-slate-600 w-full justify-center items-center  gap-1 py-2 cursor-pointer hover:bg-slate-500 group">
+            <AdjustmentsIcon class="w-7 md:5"/>
+            <span class="hidden md:block">Settings</span>
+          </div>
+        </div>
       </div>
       <!-- ChatBox -->
       <div class="flex-grow bg-white">
@@ -39,7 +51,7 @@
 </template>
 
 <script>
-import { ChevronDownIcon, SearchIcon } from '@heroicons/vue/solid'
+import { ChevronDownIcon, SearchIcon, UserAddIcon, AdjustmentsIcon } from '@heroicons/vue/solid'
 import AvatarComponent from '@/components/User/AvatarComponent'
 import UserContactComponent from '@/components/User/UserContactComponent'
 
@@ -49,7 +61,9 @@ export default {
     UserContactComponent,
     AvatarComponent,
     ChevronDownIcon,
-    SearchIcon
+    SearchIcon,
+    UserAddIcon,
+    AdjustmentsIcon
   }
 }
 </script>
