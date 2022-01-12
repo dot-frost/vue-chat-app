@@ -68,13 +68,19 @@
           </template>
         </div>
         <!-- Send Message -->
+        <div class="flex justify-items-stretch drop-shadow-md border-t-4">
+          <input class="flex-grow outline-0 px-5 py-2" placeholder="Write your message">
+          <button class="bg-slate-600 w-12 h-12 p-3 text-slate-100 hover:bg-slate-500">
+            <PaperAirplaneIcon class="transform rotate-45 w-full"/>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ChevronDownIcon, SearchIcon, UserAddIcon, AdjustmentsIcon } from '@heroicons/vue/solid'
+import { ChevronDownIcon, SearchIcon, UserAddIcon, AdjustmentsIcon, PaperAirplaneIcon } from '@heroicons/vue/solid'
 import AvatarComponent from '@/components/User/AvatarComponent'
 import UserContactComponent from '@/components/User/UserContactComponent'
 
@@ -86,7 +92,8 @@ export default {
     ChevronDownIcon,
     SearchIcon,
     UserAddIcon,
-    AdjustmentsIcon
+    AdjustmentsIcon,
+    PaperAirplaneIcon
   }
 }
 </script>
