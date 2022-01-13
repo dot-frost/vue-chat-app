@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-full relative">
-    <StatusComponent :type="statusType" :color="statusColor"/>
+    <StatusComponent :type="statusType" :color="statusColor" v-if="status"/>
     <img :src="image" :alt="alt" class="w-full rounded-full">
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
       required: true
     },
     status: {
-      required: true
+      default: false
     },
     statusType: {
       default: 'dot'
