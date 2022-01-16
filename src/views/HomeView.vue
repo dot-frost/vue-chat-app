@@ -22,7 +22,7 @@
         <!-- Contacts -->
         <div class="flex flex-grow overflow-auto flex-col scrollbar-hide">
           <UserContactComponent
-            :user="{ full_name: 'Ali Talebi' , avatar:require('@/assets/images/person/haroldgunderson.png') , status:'online'}"
+            :user="user"
             :latest="'Hello Word!!'"
             :status-type="'dot'"
             v-for="i in 20"
@@ -31,13 +31,13 @@
         </div>
         <!-- Actions -->
         <div class="flex flex-col md:flex-row justify-evenly text-sm gap-0.5">
-          <div
-            class="flex bg-slate-600 w-full justify-center items-center gap-1 py-2 cursor-pointer hover:bg-slate-500">
+          <div @click="setComponent('addContact')"
+               class="flex bg-slate-600 w-full justify-center items-center gap-1 py-2 cursor-pointer hover:bg-slate-500">
             <UserAddIcon class="w-7 md:5"/>
             <span class="hidden md:block">Add contact</span>
           </div>
-          <div
-            class="flex bg-slate-600 w-full justify-center items-center  gap-1 py-2 cursor-pointer hover:bg-slate-500 group">
+          <div @click="setComponent('settings')"
+               class="flex bg-slate-600 w-full justify-center items-center  gap-1 py-2 cursor-pointer hover:bg-slate-500 group">
             <AdjustmentsIcon class="w-7 md:5"/>
             <span class="hidden md:block">Settings</span>
           </div>
@@ -77,16 +77,29 @@
       </div>
     </div>
   </div>
+  <PopupComponent :title="popup.title" :show="popup.isActive" @close_popup="popup.isActive = false">
+    <Component :is="popup.component" @done="popup.isActive = false"/>
+  </PopupComponent>
 </template>
 
 <script>
-import { ChevronDownIcon, SearchIcon, UserAddIcon, AdjustmentsIcon, PaperAirplaneIcon } from '@heroicons/vue/solid'
+import {
+  ChevronDownIcon,
+  SearchIcon,
+  UserAddIcon,
+  AdjustmentsIcon,
+  PaperAirplaneIcon
+} from '@heroicons/vue/solid'
 import AvatarComponent from '@/components/User/AvatarComponent'
 import UserContactComponent from '@/components/User/UserContactComponent'
+import PopupComponent from '@/components/PopupComponent'
+import SettingsComponent from '@/components/SettingsComponent'
+import AddContactComponent from '@/components/AddContactComponent'
 
 export default {
   name: 'HomeView',
   components: {
+    PopupComponent,
     UserContactComponent,
     AvatarComponent,
     ChevronDownIcon,
@@ -94,6 +107,37 @@ export default {
     UserAddIcon,
     AdjustmentsIcon,
     PaperAirplaneIcon
+  },
+  data () {
+    return {
+      popup: {
+        isActive: false,
+        title: '',
+        component: null
+      },
+      user: {
+        full_name: 'Ali Talebi',
+        avatar: require('@/assets/images/person/haroldgunderson.png'),
+        status: 'online'
+      }
+    }
+  },
+  methods: {
+    setComponent (component) {
+      const components = {
+        settings: {
+          title: 'Add Contact',
+          component: SettingsComponent
+        },
+        addContact: {
+          title: 'Settings',
+          component: AddContactComponent
+        }
+      }
+      this.popup.isActive = true
+      this.popup.title = components[component].title
+      this.popup.component = components[component].component
+    }
   }
 }
 </script>
